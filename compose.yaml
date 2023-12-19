@@ -1,0 +1,18 @@
+services:
+  jupiter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/jovyan/
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+    ports:
+      - "5432:8888"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
